@@ -3,6 +3,9 @@ import {
   embeddedWallet,
   smartWallet,
   ThirdwebProvider,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
 } from "@thirdweb-dev/react";
 import Head from "next/head";
 import "../styles/globals.css";
@@ -21,6 +24,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           factoryAddress: getEnvironment().FACTORY_ADDRESS,
           gasless: true,
         }),
+        // MetaMask wallet support
+        metamaskWallet(),
+        // Coinbase Wallet support
+        coinbaseWallet(),
+        // WalletConnect for mobile and other wallets
+        walletConnect(),
       ]}
       authConfig={{
         domain: getEnvironment().DOMAIN,
